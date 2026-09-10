@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediCare - Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-page">
+
+    <div class="auth-container">
+
+        <!-- Left Side -->
+        <div class="auth-left">
+
+            <div class="brand">
+                💊 MediCare
+            </div>
+
+            <h1>
+                Stay on Track.<br> Stay Healthy.
+            </h1>
+
+            <p>
+                Medicine Reminder helps you track your medicines and reminds you to take them on time.
+            </p>
+
+            <div class="health-text">
+                ❤️ Encourage Better Healthcare
+            </div>
+
+        </div>
+
+
+        <!-- Right Side -->
+        <div class="auth-right">
+
+            <!-- LOGIN -->
+
+            <div id="loginSection">
+
+                <div class="auth-icon">
+                    💊
+                </div>
+
+                <h2>Welcome Back</h2>
+
+                <p class="subtitle">
+                    Login to manage your medicines
+                </p>
+
+
+                <form id="loginForm">
+
+                    <div class="input-box">
+
+                        <label>Email</label>
+
+                        <input type="email" id="loginEmail" placeholder="Enter your email" required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>Password</label>
+
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+
+                    </div>
+
+
+                    <button class="main-btn" type="submit">
+                        Login
+                    </button>
+
+                </form>
+
+
+                <p class="switch-text">
+                    Don't have an account?
+                    <button onclick="showSignup()">
+                        Sign Up
+                    </button>
+                </p>
+
+            </div>
+
+
+            <!-- SIGN UP -->
+
+            <div id="signupSection" style="display:none;">
+
+                <div class="auth-icon">
+                    📝
+                </div>
+
+                <h2>Create Account</h2>
+
+                <p class="subtitle">
+                    Start managing your medicines today
+                </p>
+
+
+                <form id="signupForm">
+
+                    <div class="input-box">
+
+                        <label>Full Name</label>
+
+                        <input type="text" id="signupName" placeholder="Enter your full name" required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>Email</label>
+
+                        <input type="email" id="signupEmail" placeholder="Enter your email" required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>Password</label>
+
+                        <input type="password" id="signupPassword" placeholder="Create a password" minlength="6" required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>Confirm Password</label>
+
+                        <input type="password" id="confirmPassword" placeholder="Confirm your password" minlength="6" required>
+
+                    </div>
+
+
+                    <button class="main-btn" type="submit">
+                        Create Account
+                    </button>
+
+                </form>
+
+
+                <p class="switch-text">
+                    Already have an account?
+                    <button onclick="showLogin()">
+                        Login
+                    </button>
+                </p>
+
+            </div>
+
+
+            <p id="authMessage"></p>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

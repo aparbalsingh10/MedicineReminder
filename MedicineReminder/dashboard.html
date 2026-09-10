@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediCare - Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            💊 MediCare
+        </div>
+
+
+        <nav>
+
+            <a href="#dashboard" class="active">
+                🏠 Dashboard
+            </a>
+
+            <a href="#addMedicine">
+                ➕ Add Medicine
+            </a>
+
+            <a href="#reminders">
+                ⏰ Reminder List
+            </a>
+
+            <a href="#history">
+                📋 History
+            </a>
+
+            <a href="#profile">
+                👤 Profile
+            </a>
+
+        </nav>
+
+
+        <button class="logout-btn" onclick="logout()">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h2>
+                    Good Morning! 👋
+                </h2>
+
+                <p id="todayDate"></p>
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="avatar" id="avatar">
+                    U
+                </div>
+
+                <span id="userName">
+                    User
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard">
+
+            <div class="welcome-card">
+
+                <div>
+
+                    <h1>
+                        Take care of your health.
+                    </h1>
+
+                    <p>
+                        Stay consistent with your medicines and build healthier habits.
+                    </p>
+
+                </div>
+
+                <div class="heart">
+                    ❤️
+                </div>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        💊
+                    </div>
+
+                    <div>
+                        <h3 id="totalMedicines">0</h3>
+                        <p>Total Medicines</p>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⏰
+                    </div>
+
+                    <div>
+                        <h3 id="upcomingMedicines">0</h3>
+                        <p>Upcoming</p>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✅
+                    </div>
+
+                    <div>
+                        <h3 id="takenMedicines">0</h3>
+                        <p>Taken Today</p>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ❌
+                    </div>
+
+                    <div>
+                        <h3 id="missedMedicines">0</h3>
+                        <p>Missed</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADD MEDICINE -->
+
+        <section class="content-card" id="addMedicine">
+
+            <div class="section-heading">
+
+                <h2>➕ Add Medicine</h2>
+
+                <p>
+                    Create your medicine schedule
+                </p>
+
+            </div>
+
+
+            <form id="medicineForm">
+
+                <div class="form-grid">
+
+                    <div class="input-box">
+
+                        <label>
+                            Medicine Name
+                        </label>
+
+                        <input type="text" id="medicineName" placeholder="e.g. Paracetamol" required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>
+                            Dosage
+                        </label>
+
+                        <input type="text" id="dosage" placeholder="e.g. 500 mg" required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>
+                            Time
+                        </label>
+
+                        <input type="time" id="medicineTime" required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>
+                            Frequency
+                        </label>
+
+                        <select id="frequency">
+
+                            <option value="Once">
+                                Once
+                            </option>
+
+                            <option value="Daily">
+                                Daily
+                            </option>
+
+                            <option value="Twice Daily">
+                                Twice Daily
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>
+                            Start Date
+                        </label>
+
+                        <input type="date" id="startDate" required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <label>
+                            End Date
+                        </label>
+
+                        <input type="date" id="endDate" required>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="main-btn add-button">
+                    Add Medicine
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- REMINDER LIST -->
+
+        <section class="content-card" id="reminders">
+
+            <div class="section-heading">
+
+                <h2>⏰ Reminder List</h2>
+
+                <p>
+                    Your scheduled medicines
+                </p>
+
+            </div>
+
+
+            <div id="medicineList"></div>
+
+
+            <div id="noMedicine" class="empty">
+
+                <div>💊</div>
+
+                <h3>
+                    No medicines added
+                </h3>
+
+                <p>
+                    Add your first medicine above.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- HISTORY -->
+
+        <section class="content-card" id="history">
+
+            <div class="section-heading">
+
+                <h2>📋 Medicine History</h2>
+
+                <p>
+                    Your medicine activity
+                </p>
+
+            </div>
+
+
+            <div id="historyList"></div>
+
+
+            <div id="noHistory" class="empty">
+
+                <div>📋</div>
+
+                <h3>
+                    No history yet
+                </h3>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+
+        <section class="content-card" id="profile">
+
+            <div class="section-heading">
+
+                <h2>👤 Profile</h2>
+
+                <p>
+                    Manage your account
+                </p>
+
+            </div>
+
+
+            <div class="profile">
+
+                <div class="large-avatar" id="profileAvatar">
+                    U
+                </div>
+
+
+                <div>
+
+                    <h3 id="profileName">
+                        User
+                    </h3>
+
+                    <p id="profileEmail">
+                        user@example.com
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- REMINDER MODAL -->
+
+    <div class="modal" id="reminderModal">
+
+        <div class="modal-box">
+
+            <button class="close-modal" onclick="closeReminder()">
+                ×
+            </button>
+
+            <div class="modal-icon">
+                💊
+            </div>
+
+            <h2>
+                Medicine Reminder
+            </h2>
+
+            <p id="reminderMessage">
+                It is time to take your medicine.
+            </p>
+
+            <button class="main-btn" onclick="takeReminderMedicine()">
+                ✓ Mark as Taken
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
